@@ -1,0 +1,28 @@
+
+/*====================================================================Mensaje*/
+.c_mensaje{
+    height: 1000px;
+    margin-top: 0px;
+    padding-top: 100px;
+    text-align: center;
+
+} 
+.c_mensaje div{
+    max-width: 600px;
+    height: 200px;
+    text-align: center;
+    margin: 0px auto;
+    background-color: #e8d9c5; /* Color vintage suave */
+    border: 1px solid #d4c4a8;
+}
+.c_mensaje table{
+    text-align: center;
+    color: rgb(0, 0, 0, .7);
+    width: 100%;
+    background: none;
+}
+.c_mensaje div h1{
+    color:rgb(255, 255, 255, .4);
+
+}
+ 

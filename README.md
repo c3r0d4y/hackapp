@@ -5,7 +5,7 @@ I.  Descargar los archivos publicados
 II.  Si no tienes un servidor local instala xampp, puedes descargarlo desde este link:
 https://www.apachefriends.org/es/index.html
 
-III.  crear una nueva base de datos con el nombre "hackapp"
+III.  Crear una nueva base de datos con el nombre "hackapp"
 
 IV.  Importa el archivo hackapp.sql.
 

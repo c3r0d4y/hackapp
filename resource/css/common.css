@@ -87,6 +87,9 @@ h3{
     color: var(--text);
     font-size: 1em;
 }
+#ver{
+    color: var(--highlight);
+}
 /* Estilos para el input */
 .input {
         width: 100%;
@@ -178,13 +181,11 @@ footer{
     font-size: 1.5em;
     text-align: center;
     margin-top: 30px;
-    color: #8b673e;
 }
 #footer{
     font-size: 1.5em;
     text-align: center;
     margin-top: 30px;
-    color: #8b673e;
 }
 select{
     height: 40px;
@@ -223,4 +224,14 @@ select{
 }
 .des{
     min-width: 300px;
+}
+.no{
+    width: 60px;
+    text-align: center;
+}
+.red{
+    color: var(--highlight);
+}
+.text{
+    color: var(--silver);
 }

@@ -37,7 +37,7 @@ var decode = (cadena)=>{
     cadena = cadena.replaceAll('&uml;','¨');
     cadena = cadena.replaceAll('&iquest;','¿');
     cadena = cadena.replaceAll('&gt;','>');
-
+    cadena = cadena.replaceAll('&lt;','<');
     cadena = cadena.replaceAll('xyz','\\');
 return(cadena);
 }

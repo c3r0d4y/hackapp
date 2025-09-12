@@ -72,8 +72,8 @@ var update_cheat = (datos)=>{
 var save_archivo = (datos)=>{
     document.formArchivo.submit();
 }
-var verE=()=>{document.getElementById("ver").innerHTML = "Editar"; $("#ver").removeClass("ocultar");}
-var verD=()=>{document.getElementById("ver").innerHTML = "Cheat Sheet"; $("#ver").removeClass("ocultar");}
-var verEl=()=>{document.getElementById("ver").innerHTML = "Eliminar"; $("#ver").removeClass("ocultar");}
-var verA=()=>{document.getElementById("ver").innerHTML = "Cheat Sheet"; $("#ver").removeClass("ocultar");}
+var verE=()=>{document.getElementById("ver").innerHTML = "Editar herramienta"; $("#ver").removeClass("ocultar");}
+var verD=()=>{document.getElementById("ver").innerHTML = "Ver hoja de trucos"; $("#ver").removeClass("ocultar");}
+var verEl=()=>{document.getElementById("ver").innerHTML = "Eliminar herramienta"; $("#ver").removeClass("ocultar");}
+var verA=()=>{document.getElementById("ver").innerHTML = "Cargar hoja de trucos"; $("#ver").removeClass("ocultar");}
 var ocultar=()=>{ $("#ver").addClass("ocultar");}

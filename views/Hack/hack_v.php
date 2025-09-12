@@ -18,6 +18,8 @@
                         </td>
                         <td><input class="buscar input" type="text" id="buscar" onkeyup="get_comandos('buscar')"></td>
                         <td class='btn_img' onclick='limpiar();'><img src="<?php echo URL.'/resource/images/iconos/limpiar.png';?>"></td>
+                        <td class='btn_img' onclick="insert_comando();"><img src="<?php echo URL.'/resource/images/iconos/add.png';?>"></td>
+                        <td class='btn_img'><a class='link' href="herramientas"><img src="<?php echo URL.'/resource/images/iconos/herramientas.png';?>"></a></td>
                     </tr>
                 </tbody>
             </table>
@@ -65,7 +67,7 @@
                 </form>
         </div>  
     </div>
-    <!--Modal herramientas -->
+    <!--Modal notas de herramientas -->
     <div id="m_herramientas" class="bgModal ocultar"> 
         <div class="modal">
         <div class=" btn_img cancelar ri"><img src="<?php echo URL; ?>resource/images/iconos/cancelar.png"></div>

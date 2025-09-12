@@ -162,8 +162,9 @@ var limpiar = ()=>{
     document.getElementById("buscar").value="";
     get_comandos();
 }
-var verD=()=>{document.getElementById("ver").innerHTML = "Descargar"; $("#ver").removeClass("ocultar");}
-var verE=()=>{document.getElementById("ver").innerHTML = "Editar"; $("#ver").removeClass("ocultar");}
-var verA=()=>{document.getElementById("ver").innerHTML = "Adjuntar"; $("#ver").removeClass("ocultar");}
-var verEl=()=>{document.getElementById("ver").innerHTML = "Eliminar"; $("#ver").removeClass("ocultar");}
+var verD=()=>{document.getElementById("ver").innerHTML = "Ver hoja de trucos"; $("#ver").removeClass("ocultar");}
+var verS=()=>{document.getElementById("ver").innerHTML = "Descargar Script"; $("#ver").removeClass("ocultar");}
+var verE=()=>{document.getElementById("ver").innerHTML = "Editar comando"; $("#ver").removeClass("ocultar");}
+var verA=()=>{document.getElementById("ver").innerHTML = "Adjuntar script"; $("#ver").removeClass("ocultar");}
+var verEl=()=>{document.getElementById("ver").innerHTML = "Eliminar comando"; $("#ver").removeClass("ocultar");}
 var ocultar=()=>{ $("#ver").addClass("ocultar");}

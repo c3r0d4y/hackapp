@@ -113,9 +113,9 @@ class Hack extends Controllers
                         "<td class='btn_img' onclick='ver_comando(".$datos.")'>$descripcion</td>".
                         "<td class='btn_img' onmouseover='verD()' onmouseout='ocultar()'>$linkC $nombreHerramienta</a></td>".
                         "<td class='btn_img' onmouseover='verS()' onmouseout='ocultar()'><a $link ><img src='../resource/images/iconos/$img_deacarga'></a></td>".
-                        "<td class='btn_img' onmouseover='verE()' onmouseout='ocultar()' onclick='update_comando(".$datos.")'><img src='../resource/images/iconos/editar.png'></td>".
-                        "<td class='btn_img' onmouseover='verA()' onmouseout='ocultar()' onclick='update_archivo(".$datos.")'><img src='../resource/images/iconos/$imagen'></td>".
-                        "<td class='btn_img' onmouseover='verEl()' onmouseout='ocultar()' onclick='delete_comando(".$datos.")'><img src='../resource/images/iconos/eliminar.png'></td>".
+                        "<td class='btn_img' onmouseover='verE()' onmouseout='ocultar()' ><img src='../resource/images/iconos/editar.png'></td>".
+                        "<td class='btn_img' onmouseover='verA()' onmouseout='ocultar()' ><img src='../resource/images/iconos/$imagen'></td>".
+                        "<td class='btn_img' onmouseover='verEl()' onmouseout='ocultar()' ><img src='../resource/images/iconos/eliminar.png'></td>".
                     "</tr>";
                 echo $cadena;
                 $count++;
@@ -123,84 +123,8 @@ class Hack extends Controllers
             echo "</table>";
         }
     }
-    public function update_comando(){
-        $idComando=v($_POST['idComando'],'encode');
-        $area=v($_POST['areae'],'encode');
-        $fase=v($_POST['fasee'],'encode');
-        $herramienta=v($_POST['herramientae'],'encode');
-        $comando=v($_POST['comando'],'encode');
-        $etiquetas=v($_POST['etiquetas'],'encode');
-        $descripcion=v($_POST['descripcion'],'encode');
-        $detalles=v($_POST['detalles'],'encode');
-        $data =  $this->model->update_comando_m($idComando, $area, $fase, $herramienta, $comando, $etiquetas, $descripcion, $detalles);
-        
-        $param[0]="¡Comando actualizado con exito!";
-        $param[1]="Hack/hack";
-        $menu=''; //1 oculta header 0 lo muestra
-        $this->view->render($this, "../Mesage/mesage_v", $menu, $param);
-    }
-    function insert_comando(){
-        $area=v($_POST['areae'],'encode');
-        $fase=v($_POST['fasee'],'encode');
-        $herramienta=v($_POST['herramientae'],'encode');
-        $comando=v($_POST['comando'],'encode');
-        $etiquetas=v($_POST['etiquetas'],'encode');
-        $descripcion=v($_POST['descripcion'],'encode');
-        $detalles=v($_POST['detalles'],'encode');
-        // echo $area."|".$fase."|".$herramienta;      
-        if($area!="" && $fase!="" && $herramienta !=""){
-            $data =  $this->model->insert_comando_m($area, $fase, $herramienta, $comando, $etiquetas, $descripcion, $detalles);
-            $param[0]="¡Comando agregado con exito!";
-            $param[1]="Hack/hack";
-            $menu=''; //1 oculta header 0 lo muestra
-        }else{
-            $menu='';
-            $param[0]="¡Debe seleccionar un area, fase y herramienta!";
-            $param[1]="Hack/hack";
-        }
-        $this->view->render($this, "../Mesage/mesage_v", $menu, $param);
-    }
-
-    public function update_archivo(){
-        $idComando = $_POST["idComandoA"];
-        $nombreArchivoDB = $_POST["nombreArchivoDB"];
-        $archivo = $_FILES["archivo"];
-        if(isset($_POST['delete'])){$eliminarArchivo=1;}else{$eliminarArchivo=0;}
-
-        if($archivo["name"]!=""){$archivo = v($_FILES["archivo"],'archivo');}else{$archivo="";}
-        
-        if($archivo=='formato'){
-            $param[0]="¡EL formato de la imagen no es valido!";
-            $param[1]="Hack/hack";
-            $menu='';
-            $this->view->render($this, "../Mesage/mesage_v", $menu, $param);
-        }
-        elseif($archivo=='size'){
-            $param[0]="¡El tamaño de la imagen excede el permitido (1 MB)";
-            $param[1]="Hack/hacks";
-            $menu='';
-            $this->view->render($this, "../Mesage/mesage_v", $menu, $param);
-            //devuelve null cuando no se carga un archivo
-        }
-        else{
-                //Guardamos el nombre del archivo en la tabla
-                $data =  $this->model->update_archivo_m($idComando, $nombreArchivoDB,$archivo, $eliminarArchivo);
-                $param[0]="¡Archivo actualizado con exito!";
-                $param[1]="Hack/hack";
-                $menu=''; //1 oculta header 0 lo muestra
-                $this->view->render($this, "../Mesage/mesage_v", $menu, $param);
-            }
-    }
-    public function delete_comando(){
-        $idComandoD = v($_POST["idComandoD"],'decode');
-        $path = $_POST["path"];
-        $response = $this->model->delete_comando_m($idComandoD, $path);
-        $param[0]="¡Comando eliminado con exito!";
-        $param[1]="Hack/hack";
-        $menu='';
-        $this->view->render($this, "../Mesage/mesage_v", $menu, $param);
-    }
-//===============================================================================================Herramientas
+    
+    //===============================================================================================Herramientas
     function get_herramientase(){
         $count=0;
         $no=1;
@@ -236,70 +160,15 @@ class Hack extends Controllers
                 <tr class='$bg_tr'>".
                     "<td class='no'>$no</td>".
                     "<td>$nombre</td>".
-                    "<td class='btn_img' onmouseover='verE()' onmouseout='ocultar()' onclick='update_herramientas(".$datos.")'><img src='../resource/images/iconos/editar.png'></td>".
+                    "<td class='btn_img' onmouseover='verE()' onmouseout='ocultar()'><img src='../resource/images/iconos/editar.png'></td>".
                     "<td class='btn_img' onmouseover='verD()' onmouseout='ocultar()'>$link<img src='../resource/images/iconos/$img_deacarga'></a></td>".
-                    "<td class='btn_img' onmouseover='verA()' onmouseout='ocultar()' onclick='update_cheat(".$datos.")'><img src='../resource/images/iconos/$imagen'></td>".
-                    "<td class='btn_img' onmouseover='verEl()' onmouseout='ocultar()' onclick='delete_herramientas(".$datos.")'><img src='../resource/images/iconos/eliminar.png'></td>".
+                    "<td class='btn_img' onmouseover='verA()' onmouseout='ocultar()'><img src='../resource/images/iconos/$imagen'></td>".
+                    "<td class='btn_img' onmouseover='verEl()' onmouseout='ocultar()'><img src='../resource/images/iconos/eliminar.png'></td>".
                 "</tr>";
                 echo $cadena;
                 $count++;
                 $no++;
         }
         echo "</table>";
-    }
-    public function update_herramienta(){
-        $idHerramienta=$_POST['idHerramienta'];
-        $nombreHerramienta=v($_POST['nombreHerramienta'], 'encode');
-        $ayudaHerramienta=v($_POST['ayudaHerramienta'], 'encode');      
-        $data =  $this->model->update_herramienta_m($idHerramienta, $nombreHerramienta, $ayudaHerramienta);
-        $param[0]="¡Herramnienta actualizada con exito!";
-        $param[1]="Hack/herramientas";
-        $menu=''; //1 oculta header 0 lo muestra
-        $this->view->render($this, "../Mesage/mesage_v", $menu, $param);
-    }
-    function insert_herramienta(){
-        $nombreHerramienta=v($_POST['nombreHerramienta'],'encode');
-        $ayudaHerramienta=v($_POST['ayudaHerramienta'], 'encode');
-        $data =  $this->model->insert_herramienta_m($nombreHerramienta,  $ayudaHerramienta);
-        $param[0]="¡Herramienta agregada con exito!";
-        $param[1]="hack/herramientas";
-        $menu=''; //1 oculta header 0 lo muestra
-        $this->view->render($this, "../Mesage/mesage_v", $menu, $param);
-    }
-    public function delete_herramienta(){
-        $idHerramientaD=$_POST['idHerramientaD'];
-        $response = $this->model->delete_herramienta_m($idHerramientaD);
-        $param[0]="¡Herramienta eliminada con exito!";
-        $param[1]="Hack/herramientas";
-        $menu='';
-        $this->view->render($this, "../Mesage/mesage_v", $menu, $param);
-    }
-    public function update_cheat(){
-        $idHerramienta = $_POST["idHerramientaA"];
-        $nombreArchivoDB = $_POST["nombreArchivoDB"];
-        $archivo = $_FILES["archivo"];
-        if(isset($_POST['delete'])){$eliminarArchivo=1;}else{$eliminarArchivo=0;}
-                
-        if($archivo["name"]!=""){$archivo = v($_FILES["archivo"],'pdf');}else{$archivo="";}
-        if($archivo=='formato'){
-            $param[0]="¡EL formato de la imagen no es valido!";
-            $param[1]="Hack/herramientas";
-            $menu='';
-            $this->view->render($this, "../Mesage/mesage_v", $menu, $param);
-        }
-        elseif($archivo=='size'){
-            $param[0]="¡El tamaño de la imagen excede el permitido (5 MB)";
-            $param[1]="Hack/herramientas";
-            $menu='';
-            $this->view->render($this, "../Mesage/mesage_v", $menu, $param);
-        }
-        else{
-                //Guardamos el nombre del archivo en la tabla
-                $data =  $this->model->update_cheat_m($idHerramienta,$nombreArchivoDB,$archivo,$eliminarArchivo);
-                $param[0]="¡Archivo actualizado con exito!";
-                $param[1]="Hack/herramientas";
-                $menu=''; //1 oculta header 0 lo muestra
-                $this->view->render($this, "../Mesage/mesage_v", $menu, $param);
-            }
     }
 }
